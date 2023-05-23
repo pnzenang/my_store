@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/GridView.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1679747441528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1679747441528,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport styled from 'styled-components'\nimport Product from './Product'\n\nconst GridView = ({products}) => {\n  return <Wrapper>\n\n    <div className=\"products-container\">\n      { products.map((product) => {\n        return <Product key={product.id}{...product}/>\n      })}\n    </div>\n  </Wrapper>\n}\n\nconst Wrapper = styled.section`\n  img {\n    height: 175px;\n  }\n\n  .products-container {\n    display: grid;\n    gap: 2rem 1.5rem;\n  }\n\n  @media (min-width: 992px) {\n    .products-container {\n      grid-template-columns: repeat(2, 1fr);\n    }\n  }\n  @media (min-width: 1170px) {\n    .products-container {\n      grid-template-columns: repeat(3, 1fr);\n    }\n  }\n`\n\nexport default GridView\n"
+        }
+    ]
+}

@@ -1,0 +1,182 @@
+{
+    "sourceFile": "src/components/Filters.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 41,
+            "patches": [
+                {
+                    "date": 1679923461036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679923667340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,15 @@\n import { getUniqueValues, formatPrice } from '../utils/helpers';\n import { FaCheck } from 'react-icons/fa';\n \n const Filters = () => {\n-  return <Wrapper>filters</Wrapper>;\n+  const {\n+    filters: { text, category, company, color, min_price, price, max_price, shipping }, updateFilters, clearFilters, all_products } = useFilterContext\n+  }\n+  return <Wrapper>\n+\n+\n+  </Wrapper>;\n };\n \n const Wrapper = styled.section`\n   .form-control {\n"
+                },
+                {
+                    "date": 1679923710856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,15 +5,24 @@\n import { FaCheck } from 'react-icons/fa';\n \n const Filters = () => {\n   const {\n-    filters: { text, category, company, color, min_price, price, max_price, shipping }, updateFilters, clearFilters, all_products } = useFilterContext\n-  }\n-  return <Wrapper>\n-\n-\n-  </Wrapper>;\n+    filters: {\n+      text,\n+      category,\n+      company,\n+      color,\n+      min_price,\n+      price,\n+      max_price,\n+      shipping,\n+    },\n+    updateFilters,\n+    clearFilters,\n+    all_products,\n+  } = useFilterContext;\n };\n+return <Wrapper>filters</Wrapper>;\n \n const Wrapper = styled.section`\n   .form-control {\n     margin-bottom: 1.25rem;\n"
+                },
+                {
+                    "date": 1679923758232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,11 +19,11 @@\n     updateFilters,\n     clearFilters,\n     all_products,\n   } = useFilterContext;\n+\n+  return <Wrapper>filters</Wrapper>;\n };\n-return <Wrapper>filters</Wrapper>;\n-\n const Wrapper = styled.section`\n   .form-control {\n     margin-bottom: 1.25rem;\n     h5 {\n"
+                },
+                {
+                    "date": 1679923790054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     },\n     updateFilters,\n     clearFilters,\n     all_products,\n-  } = useFilterContext;\n+  } = useFilterContext();\n \n   return <Wrapper>filters</Wrapper>;\n };\n const Wrapper = styled.section`\n"
+                },
+                {
+                    "date": 1679923869483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,15 @@\n     clearFilters,\n     all_products,\n   } = useFilterContext();\n \n-  return <Wrapper>filters</Wrapper>;\n+  return (\n+    <Wrapper>\n+      <div className='content'>\n+        <form onSubmit={(e) => e.preventDefault()}></form>\n+      </div>\n+    </Wrapper>\n+  );\n };\n const Wrapper = styled.section`\n   .form-control {\n     margin-bottom: 1.25rem;\n"
+                },
+                {
+                    "date": 1679923968260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,15 @@\n \n   return (\n     <Wrapper>\n       <div className='content'>\n-        <form onSubmit={(e) => e.preventDefault()}></form>\n+        <form onSubmit={(e) => e.preventDefault()}>\n+          {/*search input*/}\n+          <div className='form-control'>\n+            <input type='text' />\n+          </div>\n+          {/*end search input*/}\n+        </form>\n       </div>\n     </Wrapper>\n   );\n };\n"
+                },
+                {
+                    "date": 1679924077040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,14 @@\n       <div className='content'>\n         <form onSubmit={(e) => e.preventDefault()}>\n           {/*search input*/}\n           <div className='form-control'>\n-            <input type='text' />\n+            <input\n+              type='text'\n+              name='text'\n+              placeholder='search'\n+              clearFilters='search-input'\n+            />\n           </div>\n           {/*end search input*/}\n         </form>\n       </div>\n"
+                },
+                {
+                    "date": 1679924123978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             <input\n               type='text'\n               name='text'\n               placeholder='search'\n-              clearFilters='search-input'\n+              className='search-input'\n             />\n           </div>\n           {/*end search input*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679924192842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,10 @@\n               type='text'\n               name='text'\n               placeholder='search'\n               className='search-input'\n+              value={text}\n+              onChange={updateFilters}\n             />\n           </div>\n           {/*end search input*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679926725328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,12 @@\n     clearFilters,\n     all_products,\n   } = useFilterContext();\n \n+  const categories = getUniqueValues(all_products, 'category');\n+  const companies = getUniqueValues(all_products, 'company');\n+  const colors = getUniqueValues(all_products, 'colors');\n+\n   return (\n     <Wrapper>\n       <div className='content'>\n         <form onSubmit={(e) => e.preventDefault()}>\n"
+                },
+                {
+                    "date": 1679927623387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   const categories = getUniqueValues(all_products, 'category');\n   const companies = getUniqueValues(all_products, 'company');\n   const colors = getUniqueValues(all_products, 'colors');\n-\n+  console.log(categories);\n   return (\n     <Wrapper>\n       <div className='content'>\n         <form onSubmit={(e) => e.preventDefault()}>\n"
+                },
+                {
+                    "date": 1679927817741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   const categories = getUniqueValues(all_products, 'category');\n   const companies = getUniqueValues(all_products, 'company');\n   const colors = getUniqueValues(all_products, 'colors');\n-  console.log(categories);\n+  console.log(colors);\n   return (\n     <Wrapper>\n       <div className='content'>\n         <form onSubmit={(e) => e.preventDefault()}>\n"
+                },
+                {
+                    "date": 1679927940577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   const categories = getUniqueValues(all_products, 'category');\n   const companies = getUniqueValues(all_products, 'company');\n   const colors = getUniqueValues(all_products, 'colors');\n-  console.log(colors);\n+\n   return (\n     <Wrapper>\n       <div className='content'>\n         <form onSubmit={(e) => e.preventDefault()}>\n@@ -40,8 +40,12 @@\n               onChange={updateFilters}\n             />\n           </div>\n           {/*end search input*/}\n+          {/*categories*/}\n+          <h5>category</h5>\n+\n+          {/* end categories*/}\n         </form>\n       </div>\n     </Wrapper>\n   );\n"
+                },
+                {
+                    "date": 1679928099269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,13 @@\n           </div>\n           {/*end search input*/}\n           {/*categories*/}\n           <h5>category</h5>\n-\n+          <div>\n+            {categories.map((c) => {\n+              return <button key={index}></button>;\n+            })}\n+          </div>\n           {/* end categories*/}\n         </form>\n       </div>\n     </Wrapper>\n"
+                },
+                {
+                    "date": 1679928111353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n           {/*end search input*/}\n           {/*categories*/}\n           <h5>category</h5>\n           <div>\n-            {categories.map((c) => {\n+            {categories.map((c, index) => {\n               return <button key={index}></button>;\n             })}\n           </div>\n           {/* end categories*/}\n"
+                },
+                {
+                    "date": 1679928119832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n           {/*categories*/}\n           <h5>category</h5>\n           <div>\n             {categories.map((c, index) => {\n-              return <button key={index}></button>;\n+              return <button key={index}>{c}</button>;\n             })}\n           </div>\n           {/* end categories*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679928194306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,13 @@\n           {/*categories*/}\n           <h5>category</h5>\n           <div>\n             {categories.map((c, index) => {\n-              return <button key={index}>{c}</button>;\n+              return (\n+                <button key={index} onClick={updateFilters}>\n+                  {c}\n+                </button>\n+              );\n             })}\n           </div>\n           {/* end categories*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679928256765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,14 @@\n           <h5>category</h5>\n           <div>\n             {categories.map((c, index) => {\n               return (\n-                <button key={index} onClick={updateFilters}>\n+                <button\n+                  key={index}\n+                  onClick={updateFilters}\n+                  type='button'\n+                  name='category'\n+                >\n                   {c}\n                 </button>\n               );\n             })}\n"
+                },
+                {
+                    "date": 1679929276310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,11 @@\n                   key={index}\n                   onClick={updateFilters}\n                   type='button'\n                   name='category'\n+                  className={`${\n+                    category === c.toLowerCase() ? 'active' : null\n+                  }`}\n                 >\n                   {c}\n                 </button>\n               );\n"
+                },
+                {
+                    "date": 1679930818539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,8 +60,14 @@\n               );\n             })}\n           </div>\n           {/* end categories*/}\n+          {/*company*/}\n+          <div className='form-control'>\n+            <h5>company</h5>\n+          </div>\n+\n+          {/*en of company*/}\n         </form>\n       </div>\n     </Wrapper>\n   );\n"
+                },
+                {
+                    "date": 1679930934874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,8 +63,15 @@\n           {/* end categories*/}\n           {/*company*/}\n           <div className='form-control'>\n             <h5>company</h5>\n+            <select\n+              name='company'\n+              id=''\n+              value={company}\n+              onChange={updateFilters}\n+              className='company'\n+            ></select>\n           </div>\n \n           {/*en of company*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679931068104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,17 @@\n               id=''\n               value={company}\n               onChange={updateFilters}\n               className='company'\n-            ></select>\n+            >\n+              {companies.map((c, index) => {\n+                return (\n+                  <option key={index} value={c}>\n+                    {c}\n+                  </option>\n+                );\n+              })}\n+            </select>\n           </div>\n \n           {/*en of company*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679932758290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,8 +81,13 @@\n             </select>\n           </div>\n \n           {/*en of company*/}\n+          {/*colors*/}\n+          <div className='form-control'>\n+            <h5>colors</h5>\n+          </div>\n+          {/*colors*/}\n         </form>\n       </div>\n     </Wrapper>\n   );\n"
+                },
+                {
+                    "date": 1679933217471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,8 +84,22 @@\n           {/*en of company*/}\n           {/*colors*/}\n           <div className='form-control'>\n             <h5>colors</h5>\n+            <div className='colors'>\n+              {colors.map((c, index) => {\n+                return (\n+                  <button\n+                    key={index}\n+                    name='color'\n+                    style={{ background: c }}\n+                    className={`${\n+                      color === c ? 'color-btn active' : 'color-btn'\n+                    }`}\n+                  ></button>\n+                );\n+              })}\n+            </div>\n           </div>\n           {/*colors*/}\n         </form>\n       </div>\n"
+                },
+                {
+                    "date": 1679933252451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,8 +94,9 @@\n                     style={{ background: c }}\n                     className={`${\n                       color === c ? 'color-btn active' : 'color-btn'\n                     }`}\n+                    data-color={c}\n                   ></button>\n                 );\n               })}\n             </div>\n"
+                },
+                {
+                    "date": 1679933303738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,9 +95,11 @@\n                     className={`${\n                       color === c ? 'color-btn active' : 'color-btn'\n                     }`}\n                     data-color={c}\n-                  ></button>\n+                  >\n+                    {color === c ? <FaCheck /> : null}\n+                  </button>\n                 );\n               })}\n             </div>\n           </div>\n"
+                },
+                {
+                    "date": 1679933645715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,8 +95,9 @@\n                     className={`${\n                       color === c ? 'color-btn active' : 'color-btn'\n                     }`}\n                     data-color={c}\n+                    onClick={updateFilters}\n                   >\n                     {color === c ? <FaCheck /> : null}\n                   </button>\n                 );\n"
+                },
+                {
+                    "date": 1679934012874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -86,8 +86,19 @@\n           <div className='form-control'>\n             <h5>colors</h5>\n             <div className='colors'>\n               {colors.map((c, index) => {\n+                if (c === 'all') {\n+                  return (\n+                    <button\n+                      name='color'\n+                      onClick={updateFilters}\n+                      data-color='all'\n+                    >\n+                      all\n+                    </button>\n+                  );\n+                }\n                 return (\n                   <button\n                     key={index}\n                     name='color'\n"
+                },
+                {
+                    "date": 1679934123307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -92,8 +92,11 @@\n                     <button\n                       name='color'\n                       onClick={updateFilters}\n                       data-color='all'\n+                      className={`${\n+                        color === 'all' ? 'all-btn active' : 'all-btn'\n+                      }`}\n                     >\n                       all\n                     </button>\n                   );\n"
+                },
+                {
+                    "date": 1679934391809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,9 +117,16 @@\n                 );\n               })}\n             </div>\n           </div>\n-          {/*colors*/}\n+          {/*en colors*/}\n+          {/*price*/}\n+          <div className='form-control'>\n+            <h5>price</h5>\n+            <p className='price'></p>\n+          </div>\n+\n+          {/*en price*/}\n         </form>\n       </div>\n     </Wrapper>\n   );\n"
+                },
+                {
+                    "date": 1679934507817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,9 +121,9 @@\n           {/*en colors*/}\n           {/*price*/}\n           <div className='form-control'>\n             <h5>price</h5>\n-            <p className='price'></p>\n+            <p className='price'>{formatPrice(price)}</p>\n           </div>\n \n           {/*en price*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679934604635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -122,8 +122,9 @@\n           {/*price*/}\n           <div className='form-control'>\n             <h5>price</h5>\n             <p className='price'>{formatPrice(price)}</p>\n+            <input type='range' name='price' onChange={updateFilters} />\n           </div>\n \n           {/*en price*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679934676125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -122,9 +122,15 @@\n           {/*price*/}\n           <div className='form-control'>\n             <h5>price</h5>\n             <p className='price'>{formatPrice(price)}</p>\n-            <input type='range' name='price' onChange={updateFilters} />\n+            <input\n+              type='range'\n+              name='price'\n+              onChange={updateFilters}\n+              min={min_price}\n+              max={max_price}\n+            />\n           </div>\n \n           {/*en price*/}\n         </form>\n"
+                },
+                {
+                    "date": 1679934711301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -128,8 +128,9 @@\n               name='price'\n               onChange={updateFilters}\n               min={min_price}\n               max={max_price}\n+              value={price}\n             />\n           </div>\n \n           {/*en price*/}\n"
+                },
+                {
+                    "date": 1679935233169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -133,8 +133,14 @@\n             />\n           </div>\n \n           {/*en price*/}\n+\n+          {/* shipping*/}\n+          <div className='form-control shipping'>\n+            <label htmlFor='shipping'>free shipping</label>\n+          </div>\n+          {/* end shipping*/}\n         </form>\n       </div>\n     </Wrapper>\n   );\n"
+                },
+                {
+                    "date": 1679935294307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -137,8 +137,9 @@\n \n           {/* shipping*/}\n           <div className='form-control shipping'>\n             <label htmlFor='shipping'>free shipping</label>\n+            <input type='checkbox' name='shipping' id='shipping' />\n           </div>\n           {/* end shipping*/}\n         </form>\n       </div>\n"
+                },
+                {
+                    "date": 1679935364551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -137,9 +137,15 @@\n \n           {/* shipping*/}\n           <div className='form-control shipping'>\n             <label htmlFor='shipping'>free shipping</label>\n-            <input type='checkbox' name='shipping' id='shipping' />\n+            <input\n+              type='checkbox'\n+              name='shipping'\n+              id='shipping'\n+              onChange={updateFilters}\n+              checked={shipping}\n+            />\n           </div>\n           {/* end shipping*/}\n         </form>\n       </div>\n"
+                },
+                {
+                    "date": 1679936112051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -147,8 +147,11 @@\n             />\n           </div>\n           {/* end shipping*/}\n         </form>\n+        <button type='button' className='clear-btn' onClick={clearFilters}>\n+          clear filters\n+        </button>\n       </div>\n     </Wrapper>\n   );\n };\n"
+                },
+                {
+                    "date": 1679967603010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -138,9 +138,9 @@\n           {/* shipping*/}\n           <div className='form-control shipping'>\n             <label htmlFor='shipping'>free shipping</label>\n             <input\n-              type='checkbox'\n+              // type='checkbox'\n               name='shipping'\n               id='shipping'\n               onChange={updateFilters}\n               checked={shipping}\n"
+                },
+                {
+                    "date": 1679967611741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -138,9 +138,9 @@\n           {/* shipping*/}\n           <div className='form-control shipping'>\n             <label htmlFor='shipping'>free shipping</label>\n             <input\n-              // type='checkbox'\n+              type='checkbox'\n               name='shipping'\n               id='shipping'\n               onChange={updateFilters}\n               checked={shipping}\n"
+                },
+                {
+                    "date": 1680187333650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,8 +89,9 @@\n               {colors.map((c, index) => {\n                 if (c === 'all') {\n                   return (\n                     <button\n+                      key={index}\n                       name='color'\n                       onClick={updateFilters}\n                       data-color='all'\n                       className={`${\n"
+                }
+            ],
+            "date": 1679923461036,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport styled from 'styled-components';\nimport { useFilterContext } from '../context/filter_context';\nimport { getUniqueValues, formatPrice } from '../utils/helpers';\nimport { FaCheck } from 'react-icons/fa';\n\nconst Filters = () => {\n  return <Wrapper>filters</Wrapper>;\n};\n\nconst Wrapper = styled.section`\n  .form-control {\n    margin-bottom: 1.25rem;\n    h5 {\n      margin-bottom: 0.5rem;\n    }\n  }\n  .search-input {\n    padding: 0.5rem;\n    background: var(--clr-grey-10);\n    border-radius: var(--radius);\n    border-color: transparent;\n    letter-spacing: var(--spacing);\n  }\n  .search-input::placeholder {\n    text-transform: capitalize;\n  }\n\n  button {\n    display: block;\n    margin: 0.25em 0;\n    padding: 0.25rem 0;\n    text-transform: capitalize;\n    background: transparent;\n    border: none;\n    border-bottom: 1px solid transparent;\n    letter-spacing: var(--spacing);\n    color: var(--clr-grey-5);\n    cursor: pointer;\n  }\n  .active {\n    border-color: var(--clr-grey-5);\n  }\n  .company {\n    background: var(--clr-grey-10);\n    border-radius: var(--radius);\n    border-color: transparent;\n    padding: 0.25rem;\n  }\n  .colors {\n    display: flex;\n    align-items: center;\n  }\n  .color-btn {\n    display: inline-block;\n    width: 1rem;\n    height: 1rem;\n    border-radius: 50%;\n    background: #222;\n    margin-right: 0.5rem;\n    border: none;\n    cursor: pointer;\n    opacity: 0.5;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    svg {\n      font-size: 0.5rem;\n      color: var(--clr-white);\n    }\n  }\n  .all-btn {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: 0.5rem;\n    opacity: 0.5;\n  }\n  .active {\n    opacity: 1;\n  }\n  .all-btn .active {\n    text-decoration: underline;\n  }\n  .price {\n    margin-bottom: 0.25rem;\n  }\n  .shipping {\n    display: grid;\n    grid-template-columns: auto 1fr;\n    align-items: center;\n    text-transform: capitalize;\n    column-gap: 0.5rem;\n    font-size: 1rem;\n    max-width: 200px;\n  }\n  .clear-btn {\n    background: var(--clr-red-dark);\n    color: var(--clr-white);\n    padding: 0.25rem 0.5rem;\n    border-radius: var(--radius);\n  }\n  @media (min-width: 768px) {\n    .content {\n      position: sticky;\n      top: 1rem;\n    }\n  }\n`;\n\nexport default Filters;\n"
+        }
+    ]
+}

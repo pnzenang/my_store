@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Contact.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679456743279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679456784347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,11 @@\n   return (\n     <Wrapper>\n       <div className='section-center'>\n         <h3>join our newsletter and get 20% off</h3>\n+        <div className=\"content\">\n+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga harum, enim quasi vitae et explicabo voluptatem maxime ea aliquid error laudantium necessitatibus delectus, fugiat quis accusamus, in sint quisquam facere. Laboriosam vel harum cum, eaque nulla unde molestias exercitationem hic.</p>\n+        </div>\n       </div>\n     </Wrapper>\n   );\n };\n"
+                },
+                {
+                    "date": 1679456954409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,11 @@\n             laudantium necessitatibus delectus, fugiat quis accusamus, in sint\n             quisquam facere. Laboriosam vel harum cum, eaque nulla unde\n             molestias exercitationem hic.\n           </p>\n+          <form action=\"\" className=\"contact-form\">\n+            <input type=\"email\" className='form-input' placeholder='enter-email'/>\n+          </form>\n         </div>\n       </div>\n     </Wrapper>\n   );\n"
+                }
+            ],
+            "date": 1679456743279,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport styled from 'styled-components'\n\nconst Contact = () => {\n  return <Wrapper>\n    <div className=\"section-center\">\n      <h3>join our newsletter and get 20% off</h3>\n  </div>\n  </Wrapper>\n}\nconst Wrapper = styled.section`\n  padding: 5rem 0;\n  h3 {\n    text-transform: none;\n  }\n  p {\n    line-height: 2;\n    max-width: 45em;\n    color: var(--clr-grey-5);\n  }\n  .contact-form {\n    width: 90vw;\n    max-width: 500px;\n    display: grid;\n    grid-template-columns: 1fr auto;\n  }\n\n  .form-input,\n  .submit-btn {\n    font-size: 1rem;\n    padding: 0.5rem 1rem;\n    border: 2px solid var(--clr-black);\n  }\n  .form-input {\n    border-right: none;\n    color: var(--clr-grey-3);\n    border-top-left-radius: var(--radius);\n    border-bottom-left-radius: var(--radius);\n  }\n  .submit-btn {\n    border-top-right-radius: var(--radius);\n    border-bottom-right-radius: var(--radius);\n  }\n  .form-input::placeholder {\n    color: var(--clr-black);\n    text-transform: capitalize;\n  }\n  .submit-btn {\n    background: var(--clr-primary-5);\n    text-transform: capitalize;\n    letter-spacing: var(--spacing);\n    cursor: pointer;\n    transition: var(--transition);\n    color: var(--clr-black);\n  }\n  .submit-btn:hover {\n    color: var(--clr-white);\n  }\n  @media (min-width: 992px) {\n    .content {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      align-items: center;\n      gap: 8rem;\n      margin-top: 2rem;\n    }\n    p {\n      margin-bottom: 0;\n    }\n  }\n  @media (min-width: 1280px) {\n    padding: 15rem 0;\n  }\n`\n\nexport default Contact\n"
+        }
+    ]
+}

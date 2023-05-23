@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/FeaturedProducts.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679461799968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679462398977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,14 @@\n     products_loading: loading,\n     products_error: error,\n     featured_products: featured,\n   } = useProductsContext();\n+  if (loading) {\n+    return <Loading/>\n+  }\n+  if (error) {\n+    return <Error/>\n+  }\n   return <h4>featured products</h4>;\n };\n \n const Wrapper = styled.section`\n"
+                },
+                {
+                    "date": 1679463977915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,14 @@\n   }\n   if (error) {\n     return <Error />;\n   }\n-  return <h4>featured products</h4>;\n+  return <Wrapper className='section'>\n+    <div className=\"title\">\n+      <h2>featured products</h2>\n+      <div className=\"underline\"></div>\n+    </div>\n+  </Wrapper>;\n };\n \n const Wrapper = styled.section`\n   background: var(--clr-grey-10);\n"
+                }
+            ],
+            "date": 1679461799968,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport { useProductsContext } from '../context/products_context'\nimport { Link } from 'react-router-dom'\nimport styled from 'styled-components'\nimport Error from './Error'\nimport Loading from './Loading'\nimport Product from './Product'\n\nconst FeaturedProducts = () => {\n  const {products_loading:loading, products_error:error, featured_products: featured} = useProductsContext()\n  return <h4>featured products</h4>\n}\n\nconst Wrapper = styled.section`\n  background: var(--clr-grey-10);\n  .featured {\n    margin: 4rem auto;\n    display: grid;\n    gap: 2.5rem;\n    img {\n      height: 225px;\n    }\n  }\n  .btn {\n    display: block;\n    width: 148px;\n    margin: 0 auto;\n    text-align: center;\n  }\n  @media (min-width: 576px) {\n    .featured {\n      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));\n    }\n  }\n`\n\nexport default FeaturedProducts\n"
+        }
+    ]
+}

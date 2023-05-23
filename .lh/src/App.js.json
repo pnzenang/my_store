@@ -1,0 +1,110 @@
+{
+    "sourceFile": "src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 23,
+            "patches": [
+                {
+                    "date": 1679276973494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679276991418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import styled from 'styled-components';\n \n const Button = styled.button`\n   background: green;\n+  color: white;\n `;\n \n function App() {\n   return <h4>comfy sloth starter</h4>;\n"
+                },
+                {
+                    "date": 1679277065111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n   color: white;\n `;\n \n function App() {\n-  return <h4>comfy sloth starter</h4>;\n-}\n+  return <div>\n+    <h4>comfy sloth starter </h4>\n+    </div>;\n \n export default App;\n"
+                },
+                {
+                    "date": 1679277075503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   color: white;\n `;\n \n function App() {\n-  return <div>\n+  return (<div>\n     <h4>comfy sloth starter </h4>\n-    </div>;\n+    </div>);\n \n export default App;\n"
+                },
+                {
+                    "date": 1679277187564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n   color: white;\n `;\n \n function App() {\n-  return (<div>\n-    <h4>comfy sloth starter </h4>\n-    </div>);\n-\n+  return (\n+    <div>\n+      <h4>comfy sloth starter </h4>\n+    </div>\n+  );\n+}\n export default App;\n"
+                },
+                {
+                    "date": 1679277238157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n function App() {\n   return (\n     <div>\n       <h4>comfy sloth starter </h4>\n+      <Button>click me</Button>\n     </div>\n   );\n }\n export default App;\n"
+                },
+                {
+                    "date": 1679277412355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,14 +6,23 @@\n const Button = styled.button`\n   background: green;\n   color: white;\n `;\n+const Container = styled.div`\n+  background: red;\n+  color: white;\n+`;\n \n function App() {\n   return (\n     <div>\n       <h4>comfy sloth starter </h4>\n       <Button>click me</Button>\n+      <Container>\n+        <div>\n+          <h3>Hello world</h3>\n+        </div>\n+      </Container>\n     </div>\n   );\n }\n export default App;\n"
+                },
+                {
+                    "date": 1679277577656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,11 @@\n `;\n const Container = styled.div`\n   background: red;\n   color: white;\n+  .hero {\n+    font-size: 8rem;\n+  }\n `;\n \n function App() {\n   return (\n@@ -20,8 +23,9 @@\n       <Container>\n         <div>\n           <h3>Hello world</h3>\n         </div>\n+        <div className='hero'>hero text</div>\n       </Container>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1679277911999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,31 +2,12 @@\n import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\n import { Navbar, Sidebar, Footer } from './components';\n import styled from 'styled-components';\n \n-const Button = styled.button`\n-  background: green;\n-  color: white;\n-`;\n-const Container = styled.div`\n-  background: red;\n-  color: white;\n-  .hero {\n-    font-size: 8rem;\n-  }\n-`;\n-\n function App() {\n   return (\n     <div>\n       <h4>comfy sloth starter </h4>\n-      <Button>click me</Button>\n-      <Container>\n-        <div>\n-          <h3>Hello world</h3>\n-        </div>\n-        <div className='hero'>hero text</div>\n-      </Container>\n     </div>\n   );\n }\n export default App;\n"
+                },
+                {
+                    "date": 1679359740624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react';\n-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\n+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';\n import { Navbar, Sidebar, Footer } from './components';\n import styled from 'styled-components';\n \n function App() {\n"
+                },
+                {
+                    "date": 1679362765546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,18 @@\n import React from 'react';\n import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';\n import { Navbar, Sidebar, Footer } from './components';\n import styled from 'styled-components';\n+import {\n+  Home,\n+  Products,\n+  SingleProduct,\n+  About,\n+  Cart,\n+  Error,\n+  Checkout,\n+  PrivateRoute,\n+} from './pages';\n \n function App() {\n   return (\n     <div>\n"
+                },
+                {
+                    "date": 1679362933268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,12 @@\n } from './pages';\n \n function App() {\n   return (\n-    <div>\n-      <h4>comfy sloth starter </h4>\n-    </div>\n+    <Router>\n+      <Routes>\n+        <Route path='/' element={<Home />} />\n+      </Routes>\n+    </Router>\n   );\n }\n export default App;\n"
+                },
+                {
+                    "date": 1679363274899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,14 +11,21 @@\n   Error,\n   Checkout,\n   PrivateRoute,\n } from './pages';\n+import { OAuthError } from '@auth0/auth0-react';\n \n function App() {\n   return (\n     <Router>\n       <Routes>\n         <Route path='/' element={<Home />} />\n+        <Route path='/about' element={<About />} />\n+        <Route path='/cart' element={<Cart />} />\n+        <Route path='/products' element={<Products />} />\n+        <Route path='/products/:id' children={<SingleProduct />} />\n+        <Route path='/checkout' element={<Checkout />} />\n+        <Route path='*' element={<Error />} />\n       </Routes>\n     </Router>\n   );\n }\n"
+                },
+                {
+                    "date": 1679363291840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n         <Route path='/' element={<Home />} />\n         <Route path='/about' element={<About />} />\n         <Route path='/cart' element={<Cart />} />\n         <Route path='/products' element={<Products />} />\n-        <Route path='/products/:id' children={<SingleProduct />} />\n+        {/* <Route path='/products/:id' children={<SingleProduct />} /> */}\n         <Route path='/checkout' element={<Checkout />} />\n         <Route path='*' element={<Error />} />\n       </Routes>\n     </Router>\n"
+                },
+                {
+                    "date": 1679363306911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n         <Route path='/' element={<Home />} />\n         <Route path='/about' element={<About />} />\n         <Route path='/cart' element={<Cart />} />\n         <Route path='/products' element={<Products />} />\n-        {/* <Route path='/products/:id' children={<SingleProduct />} /> */}\n+        <Route path='/products/:id' element={<SingleProduct />} />\n         <Route path='/checkout' element={<Checkout />} />\n         <Route path='*' element={<Error />} />\n       </Routes>\n     </Router>\n"
+                },
+                {
+                    "date": 1679363439350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n \n function App() {\n   return (\n     <Router>\n+      <Navbar />\n       <Routes>\n         <Route path='/' element={<Home />} />\n         <Route path='/about' element={<About />} />\n         <Route path='/cart' element={<Cart />} />\n"
+                },
+                {
+                    "date": 1679363456752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n         <Route path='/products/:id' element={<SingleProduct />} />\n         <Route path='/checkout' element={<Checkout />} />\n         <Route path='*' element={<Error />} />\n       </Routes>\n+      <Footer />\n     </Router>\n   );\n }\n export default App;\n"
+                },
+                {
+                    "date": 1679363487950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n function App() {\n   return (\n     <Router>\n       <Navbar />\n+      <Sidebar />\n       <Routes>\n         <Route path='/' element={<Home />} />\n         <Route path='/about' element={<About />} />\n         <Route path='/cart' element={<Cart />} />\n"
+                },
+                {
+                    "date": 1679707988651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n       <Routes>\n         <Route path='/' element={<Home />} />\n         <Route path='/about' element={<About />} />\n         <Route path='/cart' element={<Cart />} />\n-        <Route path='/products' element={<Products />} />\n+        <Route path='/products' element={<ProductsPage />} />\n         <Route path='/products/:id' element={<SingleProduct />} />\n         <Route path='/checkout' element={<Checkout />} />\n         <Route path='*' element={<Error />} />\n       </Routes>\n"
+                },
+                {
+                    "date": 1679708004702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Navbar, Sidebar, Footer } from './components';\n import styled from 'styled-components';\n import {\n   Home,\n-  Products,\n+  ProductsPage,\n   SingleProduct,\n   About,\n   Cart,\n   Error,\n"
+                },
+                {
+                    "date": 1679787860793,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n       <Routes>\n         <Route path='/' element={<Home />} />\n         <Route path='/about' element={<About />} />\n         <Route path='/cart' element={<Cart />} />\n-        <Route path='/products' element={<ProductsPage />} />\n+        <Route path='/products' element={<Home />} />\n         <Route path='/products/:id' element={<SingleProduct />} />\n         <Route path='/checkout' element={<Checkout />} />\n         <Route path='*' element={<Error />} />\n       </Routes>\n"
+                },
+                {
+                    "date": 1679789019547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n       <Routes>\n         <Route path='/' element={<Home />} />\n         <Route path='/about' element={<About />} />\n         <Route path='/cart' element={<Cart />} />\n-        <Route path='/products' element={<Home />} />\n+        <Route path='/products' element={<ProductsPage />} />\n         <Route path='/products/:id' element={<SingleProduct />} />\n         <Route path='/checkout' element={<Checkout />} />\n         <Route path='*' element={<Error />} />\n       </Routes>\n"
+                },
+                {
+                    "date": 1681060730636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     <Router>\n       <Navbar />\n       <Sidebar />\n       <Routes>\n-        <Route path='/' element={<Home />} />\n+       \n         <Route path='/about' element={<About />} />\n         <Route path='/cart' element={<Cart />} />\n         <Route path='/products' element={<ProductsPage />} />\n         <Route path='/products/:id' element={<SingleProduct />} />\n"
+                },
+                {
+                    "date": 1681060746467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n         <Route path='/products' element={<ProductsPage />} />\n         <Route path='/products/:id' element={<SingleProduct />} />\n         <Route path='/checkout' element={<Checkout />} />\n         <Route path='*' element={<Error />} />\n+        <Route path='/' element={<Home />} />\n       </Routes>\n       <Footer />\n     </Router>\n   );\n"
+                }
+            ],
+            "date": 1679276973494,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\nimport { Navbar, Sidebar, Footer } from './components';\nimport styled from 'styled-components';\n\nconst Button = styled.button`\n  background: green;\n`;\n\nfunction App() {\n  return <h4>comfy sloth starter</h4>;\n}\n\nexport default App;\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/pages/HomePage.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1679454883195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679455833054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,14 @@\n-import React from 'react'\n-import { FeaturedProducts, Hero, Services, Contact } from '../components'\n+import React from 'react';\n+import { FeaturedProducts, Hero, Services, Contact } from '../components';\n const HomePage = () => {\n-  return <main><Hero/><FeaturedProducts/><Services/><Contact/></main>\n-}\n+  return (\n+    <main>\n+      <Hero />\n+      <FeaturedProducts />\n+      <Services />\n+      <Contact />\n+    </main>\n+  );\n+};\n \n-export default HomePage\n+export default HomePage;\n"
+                }
+            ],
+            "date": 1679454883195,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport { FeaturedProducts, Hero, Services, Contact } from '../components'\nconst HomePage = () => {\n  return <main><Hero/><FeaturedProducts/><Services/><Contact/></main>\n}\n\nexport default HomePage\n"
+        }
+    ]
+}

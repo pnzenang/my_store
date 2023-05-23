@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/pages/CartPage.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1680141894445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1680141909842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   if (cart.length < 1) {\n     <Wrapper className='page-100'>\n       <div className='empty'>\n         <h2>your cart is empty</h2>\n-        <Link to='/products' className='btn'></Link>\n+        <Link to='/products' className='btn'>fill it</Link>\n       </div>\n     </Wrapper>;\n   }\n   return <h4>cart page</h4>;\n"
+                },
+                {
+                    "date": 1680142045009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n \n const CartPage = () => {\n   const { cart } = useCartContext();\n   if (cart.length < 1) {\n-    <Wrapper className='page-100'>\n+\n+   return <Wrapper className='page-100'>\n       <div className='empty'>\n         <h2>your cart is empty</h2>\n         <Link to='/products' className='btn'>\n           fill it\n"
+                }
+            ],
+            "date": 1680141894445,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport styled from 'styled-components'\nimport { useCartContext } from '../context/cart_context'\nimport { Link } from 'react-router-dom'\nimport { CartContent, PageHero } from '../components'\n\nconst CartPage = () => {\n  const { cart } = useCartContext()\n  if (cart.length < 1) {\n    <Wrapper className='page-100'>\n      <div className=\"empty\">\n        <h2>your cart is empty</h2>\n        <Link to='/products'className='btn'></Link>\n      </div>\n    </Wrapper>\n  }\n  return <h4>cart page</h4>\n}\n\nconst Wrapper = styled.main`\n  .empty {\n    text-align: center;\n    h2 {\n      margin-bottom: 1rem;\n      text-transform: none;\n    }\n  }\n`\n\nexport default CartPage\n"
+        }
+    ]
+}

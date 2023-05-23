@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/PrivateRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1679712309149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1679712309149,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { Route, Redirect } from 'react-router-dom';\nimport { useAuth0 } from '@auth0/auth0-react';\n// will remove later\nimport { useUserContext } from '../context/user_context';\n\nconst PrivateRoute = () => {\n  return <h4>Private Route</h4>;\n};\nexport default PrivateRoute;\n"
+        }
+    ]
+}

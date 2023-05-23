@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/context/products_context.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679369229728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679369513933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,11 @@\n \n   const openSidebar = () => {\n     dispatch({ type: 'SIDEBAR_OPEN' });\n   };\n-\n+  useEffect(() => {\n+  openSidebar()\n+},[])\n   return (\n     <ProductsContext.Provider value='products context'>\n       {children}\n     </ProductsContext.Provider>\n"
+                },
+                {
+                    "date": 1679371573579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,15 +22,16 @@\n export const ProductsProvider = ({ children }) => {\n   const [state, dispatch] = useReducer(reducer, initialState);\n \n   const openSidebar = () => {\n-    dispatch({ type: 'SIDEBAR_OPEN' });\n+    dispatch({ type: SIDEBAR_OPEN });\n   };\n-  useEffect(() => {\n-    openSidebar();\n-  }, []);\n+  const closeSidebar = () => {\n+    dispatch({ type: SIDEBAR_CLOSE });\n+  };\n+ \n   return (\n-    <ProductsContext.Provider value='products context'>\n+    <ProductsContext.Provider value={{...state, openSidebar, closeSidebar}}>\n       {children}\n     </ProductsContext.Provider>\n   );\n };\n"
+                }
+            ],
+            "date": 1679369229728,
+            "name": "Commit-0",
+            "content": "import axios from 'axios'\nimport React, { useContext, useEffect, useReducer } from 'react'\nimport reducer from '../reducers/products_reducer'\nimport { products_url as url } from '../utils/constants'\nimport {\n  SIDEBAR_OPEN,\n  SIDEBAR_CLOSE,\n  GET_PRODUCTS_BEGIN,\n  GET_PRODUCTS_SUCCESS,\n  GET_PRODUCTS_ERROR,\n  GET_SINGLE_PRODUCT_BEGIN,\n  GET_SINGLE_PRODUCT_SUCCESS,\n  GET_SINGLE_PRODUCT_ERROR,\n} from '../actions'\n\nconst initialState = {\n  isSidebarOpen: false\n}\n\nconst ProductsContext = React.createContext()\n\nexport const ProductsProvider = ({ children }) => {\n  const [state, dispatch] = useReducer(reducer, initialState)\n  \n  const openSidebar = () => {\n  dispatch({type: 'SIDEBAR_OPEN'})\n}\n\n  return (\n    <ProductsContext.Provider value='products context'>\n      {children}\n    </ProductsContext.Provider>\n  )\n}\n// make sure use\nexport const useProductsContext = () => {\n  return useContext(ProductsContext)\n}\n"
+        }
+    ]
+}

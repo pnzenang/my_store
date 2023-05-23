@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/pages/ProductsPage.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679741324664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679741479180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,15 @@\n const ProductsPage = () => {\n   return (\n     <main>\n       <PageHero title='products' />\n+      <div className=\"section-center products\">\n+        <Filters />\n+        <div>\n+          <Sort />\n+          <ProductList/>\n+        </div>\n+      </div>\n       <Wrapper className='page'></Wrapper>\n     </main>\n   );\n };\n"
+                },
+                {
+                    "date": 1679742333795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,17 @@\n const ProductsPage = () => {\n   return (\n     <main>\n       <PageHero title='products' />\n-      <div className='section-center products'>\n-        <Filters />\n-        <div>\n-          <Sort />\n-          <ProductList />\n+      <Wrapper className='page'>\n+        <div className='section-center products'>\n+          <Filters />\n+          <div>\n+            <Sort />\n+            <ProductList />\n+          </div>\n         </div>\n-      </div>\n-      <Wrapper className='page'></Wrapper>\n+      </Wrapper>\n     </main>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1679741324664,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport styled from 'styled-components'\nimport { Filters, ProductList, Sort, PageHero } from '../components'\n\nconst ProductsPage = () => {\n  return <main>\n    <PageHero title='products' />\n    <Wrapper className='page'>\n\n     \n\n    </Wrapper>\n  \n  </main>\n}\n\nconst Wrapper = styled.div`\n  .products {\n    display: grid;\n    gap: 3rem 1.5rem;\n    margin: 4rem auto;\n  }\n  @media (min-width: 768px) {\n    .products {\n      grid-template-columns: 200px 1fr;\n    }\n  }\n`\n\nexport default ProductsPage\n"
+        }
+    ]
+}

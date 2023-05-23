@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/components/ProductImages.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1679628767543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679629831715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,11 @@\n-import React, { useState } from 'react'\n-import styled from 'styled-components'\n+import React, { useState } from 'react';\n+import styled from 'styled-components';\n \n-const ProductImages = () => {\n-  return <h4>product images</h4>\n-}\n+const ProductImages = ({ images }) => {\n+  console.log(images);\n+  return <h4>product images</h4>;\n+};\n \n const Wrapper = styled.section`\n   .main {\n     height: 600px;\n@@ -47,7 +48,7 @@\n         height: 75px;\n       }\n     }\n   }\n-`\n+`;\n \n-export default ProductImages\n+export default ProductImages;\n"
+                },
+                {
+                    "date": 1679632227130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React, { useState } from 'react';\n import styled from 'styled-components';\n \n const ProductImages = ({ images }) => {\n+  const [main, setMain] = useState(images[0]);\n   console.log(images);\n   return <h4>product images</h4>;\n };\n \n"
+                },
+                {
+                    "date": 1679670456418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,20 @@\n import React, { useState } from 'react';\n import styled from 'styled-components';\n \n-const ProductImages = ({ images }) => {\n+const ProductImages = ({ images = [{ url: '' }] }) => {\n   const [main, setMain] = useState(images[0]);\n-  console.log(images);\n-  return <h4>product images</h4>;\n+  console.log(main);\n+  return (\n+    <Wrapper>\n+      <img src={main.url} alt='main image' className='main' />\n+      <div className='gallery'>\n+        {images.map((image, index) => {\n+          return <img src={image.url} alt={image.filename} />;\n+        })}\n+      </div>\n+    </Wrapper>\n+  );\n };\n \n const Wrapper = styled.section`\n   .main {\n"
+                },
+                {
+                    "date": 1679670548218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,16 @@\n     <Wrapper>\n       <img src={main.url} alt='main image' className='main' />\n       <div className='gallery'>\n         {images.map((image, index) => {\n-          return <img src={image.url} alt={image.filename} />;\n+          return (\n+            <img\n+              src={image.url}\n+              alt={image.filename}\n+              key={index}\n+              onClick={() => setMain(images[index])}\n+            />\n+          );\n         })}\n       </div>\n     </Wrapper>\n   );\n"
+                },
+                {
+                    "date": 1679670782453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n               src={image.url}\n               alt={image.filename}\n               key={index}\n               onClick={() => setMain(images[index])}\n+              className={`${image.url === main.url ? 'active' : null}`}\n             />\n           );\n         })}\n       </div>\n"
+                },
+                {
+                    "date": 1679713457323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useState } from 'react';\n import styled from 'styled-components';\n \n const ProductImages = ({ images = [{ url: '' }] }) => {\n-  const [main, setMain] = useState(images[0]);\n+  const [main, setMains] = useState(images[0]);\n   console.log(main);\n   return (\n     <Wrapper>\n       <img src={main.url} alt='main image' className='main' />\n"
+                },
+                {
+                    "date": 1679713513682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useState } from 'react';\n import styled from 'styled-components';\n \n const ProductImages = ({ images = [{ url: '' }] }) => {\n-  const [main, setMains] = useState(images[0]);\n+  const [main, setMain] = useState(images[0]);\n   console.log(main);\n   return (\n     <Wrapper>\n       <img src={main.url} alt='main image' className='main' />\n"
+                },
+                {
+                    "date": 1679713765399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useState } from 'react';\n import styled from 'styled-components';\n \n const ProductImages = ({ images = [{ url: '' }] }) => {\n-  const [main, setMain] = useState(images[0]);\n+  const [main, setMaine] = useState(images[0]);\n   console.log(main);\n   return (\n     <Wrapper>\n       <img src={main.url} alt='main image' className='main' />\n"
+                },
+                {
+                    "date": 1679713772860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useState } from 'react';\n import styled from 'styled-components';\n \n const ProductImages = ({ images = [{ url: '' }] }) => {\n-  const [main, setMaine] = useState(images[0]);\n+  const [main, setMain] = useState(images[0]);\n   console.log(main);\n   return (\n     <Wrapper>\n       <img src={main.url} alt='main image' className='main' />\n"
+                }
+            ],
+            "date": 1679628767543,
+            "name": "Commit-0",
+            "content": "import React, { useState } from 'react'\nimport styled from 'styled-components'\n\nconst ProductImages = () => {\n  return <h4>product images</h4>\n}\n\nconst Wrapper = styled.section`\n  .main {\n    height: 600px;\n  }\n  img {\n    width: 100%;\n    display: block;\n    border-radius: var(--radius);\n    object-fit: cover;\n  }\n  .gallery {\n    margin-top: 1rem;\n    display: grid;\n    grid-template-columns: repeat(5, 1fr);\n    column-gap: 1rem;\n    img {\n      height: 100px;\n      cursor: pointer;\n    }\n  }\n  .active {\n    box-shadow: 0px 0px 0px 2px var(--clr-primary-5);\n  }\n  @media (max-width: 576px) {\n    .main {\n      height: 300px;\n    }\n    .gallery {\n      img {\n        height: 50px;\n      }\n    }\n  }\n  @media (min-width: 992px) {\n    .main {\n      height: 500px;\n    }\n    .gallery {\n      img {\n        height: 75px;\n      }\n    }\n  }\n`\n\nexport default ProductImages\n"
+        }
+    ]
+}

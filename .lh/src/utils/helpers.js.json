@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/utils/helpers.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679507408402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679507448237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-export const formatPrice = () => {\n+export const formatPrice = (number) => {\n   const newNumber = Intl.NumberFormat('en-US', {\n     style: 'currency',\n     currency: 'USD',\n   }).format(number / 100);\n-  return newNumber;\n+  return number;\n };\n \n export const getUniqueValues = () => {};\n"
+                },
+                {
+                    "date": 1679508038801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n   const newNumber = Intl.NumberFormat('en-US', {\n     style: 'currency',\n     currency: 'USD',\n   }).format(number / 100);\n-  return number;\n+  return newNumber;\n };\n \n export const getUniqueValues = () => {};\n"
+                }
+            ],
+            "date": 1679507408402,
+            "name": "Commit-0",
+            "content": "export const formatPrice = () => {\n const newNumber = Intl.NumberFormat('en-US', {\n  style: 'currency', currency:'USD'\n }).format(number / 100)\n return newNumber\n}\n\nexport const getUniqueValues = () => {}\n"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/pages/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1679362667095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679362698893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,15 @@\n import About from './AboutPage';\n import Cart from './CartPage';\n import Error from './ErrorPage';\n import Checkout from './CheckoutPage';\n-import Private from './PrivateRoute';\n-export { Home, Products, SingleProduct, About, Cart, Error, Checkout, Private };\n+import PrivateRoute from './PrivateRoute';\n+export {\n+  Home,\n+  Products,\n+  SingleProduct,\n+  About,\n+  Cart,\n+  Error,\n+  Checkout,\n+  PrivateRoute,\n+};\n"
+                },
+                {
+                    "date": 1679708057518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Home from './HomePage';\n-import Products from './ProductsPage';\n+import ProductsPage from './ProductsPage';\n import SingleProduct from './SingleProductPage';\n import About from './AboutPage';\n import Cart from './CartPage';\n import Error from './ErrorPage';\n"
+                },
+                {
+                    "date": 1679708068726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n import Checkout from './CheckoutPage';\n import PrivateRoute from './PrivateRoute';\n export {\n   Home,\n-  Products,\n+  ProductsPage,\n   SingleProduct,\n   About,\n   Cart,\n   Error,\n"
+                }
+            ],
+            "date": 1679362667095,
+            "name": "Commit-0",
+            "content": "import Home from './HomePage';\nimport Products from './ProductsPage';\nimport SingleProduct from './SingleProductPage';\nimport About from './AboutPage';\nimport Cart from './CartPage';\nimport Error from './ErrorPage';\nimport Checkout from './CheckoutPage';\nimport Private from './PrivateRoute';\nexport { Home, Products, SingleProduct, About, Cart, Error, Checkout, Private };\n"
+        }
+    ]
+}

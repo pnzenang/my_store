@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Services.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679455666156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679455709926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n             custom furniture\n             <br />\n             build only for you\n           </h3>\n+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem exercitationem incidunt amet cumque possimus placeat temporibus similique quos sunt itaque beatae dolore ab ipsum veniam, deleniti vitae corporis earum quibusdam deserunt quod pariatur. Eligendi, repellat necessitatibus architecto libero sunt recusandae.</p>\n         </article>\n       </div>\n     </Wrapper>\n   );\n"
+                },
+                {
+                    "date": 1679456134177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from 'react';\n+import { GenIcon } from 'react-icons/lib';\n import styled from 'styled-components';\n import { services } from '../utils/constants';\n \n const Services = () => {\n@@ -19,8 +20,16 @@\n             vitae corporis earum quibusdam deserunt quod pariatur. Eligendi,\n             repellat necessitatibus architecto libero sunt recusandae.\n           </p>\n         </article>\n+        <div className=\"services-center\">\n+          { services.map((service) => {\n+            const { id, icon, title, text } = service;\n+            return <article key={ id } className='service'>\n+              <span className='icon'>{ icon}</span>\n+            </article>\n+          })}\n+        </div>\n       </div>\n     </Wrapper>\n   );\n };\n"
+                }
+            ],
+            "date": 1679455666156,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport styled from 'styled-components'\nimport { services } from '../utils/constants'\n\nconst Services = () => {\n  return <Wrapper>\n    <div className=\"section-center\">\n      <article className=\"header\">\n        <h3>custom furniture<br/>build only for you</h3>\n      </article>\n    </div>\n  </Wrapper>\n}\n\nconst Wrapper = styled.section`\n  h3,\n  h4 {\n    color: var(--clr-primary-1);\n  }\n  padding: 5rem 0;\n\n  background: var(--clr-primary-10);\n\n  .header h3 {\n    margin-bottom: 2rem;\n  }\n  p {\n    margin-bottom: 0;\n    line-height: 1.8;\n    color: var(--clr-primary-3);\n  }\n  .services-center {\n    margin-top: 4rem;\n    display: grid;\n    gap: 2.5rem;\n  }\n  .service {\n    background: var(--clr-primary-7);\n    text-align: center;\n    padding: 2.5rem 2rem;\n    border-radius: var(--radius);\n    p {\n      color: var(--clr-primary-2);\n    }\n  }\n  span {\n    width: 4rem;\n    height: 4rem;\n    display: grid;\n    margin: 0 auto;\n    place-items: center;\n    margin-bottom: 1rem;\n    border-radius: 50%;\n    background: var(--clr-primary-10);\n    color: var(--clr-primary-1);\n    svg {\n      font-size: 2rem;\n    }\n  }\n  @media (min-width: 992px) {\n    .header {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n  @media (min-width: 576px) {\n    .services-center {\n      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));\n    }\n  }\n  @media (min-width: 1280px) {\n    padding: 0;\n    .section-center {\n      transform: translateY(5rem);\n    }\n  }\n`\nexport default Services\n"
+        }
+    ]
+}

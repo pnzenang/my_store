@@ -1,0 +1,5 @@
+{
+  "editor.guides.bracketPairs": "active",
+  "rainbowBrackets.squareBracketsColor": ["#33ccff", "#8080ff", "#0073a8"]
+  // "editor.autoClosingBrackets": "always"
+}

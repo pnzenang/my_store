@@ -1,0 +1,26 @@
+{
+    "sourceFile": ".vscode/settings.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679456328691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679456339837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n {\n-  \"editor.guides.bracketPairs\": true\n+  \"editor.guides.bracketPairs\": \"active\"\n }\n"
+                },
+                {
+                    "date": 1679456529738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n {\n   \"editor.guides.bracketPairs\": \"active\",\n-  \"rainbowBrackets.squareBracketsColor\": [\"#33ccff\", \"#8080ff\", \"#0073a8\"]\n+  \"rainbowBrackets.squareBracketsColor\": [\n+   \n+    \"#33ccff\", \"#8080ff\", \"#0073a8\"],\n+      \"editor.autoClosingBrackets\": \"always\"\n }\n"
+                }
+            ],
+            "date": 1679456328691,
+            "name": "Commit-0",
+            "content": "{\n \"editor.guides.bracketPairs\": true\n}"
+        }
+    ]
+}

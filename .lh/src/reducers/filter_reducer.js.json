@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/reducers/filter_reducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679739976177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679740185419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   if (action.type === LOAD_PRODUCTS) {\n     return {\n       ...state,\n       all_products: [...action.payload],\n-      filter_products: [...action.payload],\n+      filtered_products: [...action.payload],\n     };\n   }\n   return state;\n   throw new Error(`No Matching \"${action.type}\" - action type`);\n"
+                },
+                {
+                    "date": 1679740328448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n       all_products: [...action.payload],\n       filtered_products: [...action.payload],\n     };\n   }\n-  return state;\n   throw new Error(`No Matching \"${action.type}\" - action type`);\n };\n \n export default filter_reducer;\n"
+                }
+            ],
+            "date": 1679739976177,
+            "name": "Commit-0",
+            "content": "import {\n  LOAD_PRODUCTS,\n  SET_LISTVIEW,\n  SET_GRIDVIEW,\n  UPDATE_SORT,\n  SORT_PRODUCTS,\n  UPDATE_FILTERS,\n  FILTER_PRODUCTS,\n  CLEAR_FILTERS,\n} from '../actions'\n\nconst filter_reducer = (state, action) => {\n  if (action.type === LOAD_PRODUCTS) {\n    return {...state, all_products:[...action.payload], filter_products:[...action.payload]}\n  }\n  return state\n  throw new Error(`No Matching \"${action.type}\" - action type`)\n}\n\nexport default filter_reducer\n"
+        }
+    ]
+}

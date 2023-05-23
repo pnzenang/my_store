@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/AmountButtons.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679720166036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679720207827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n     <Wrapper className='amount-btn'>\n       <button type='button' className='amount-btn' onClick={decrease}>\n         <FaMinus />\n       </button>\n+      <h2 className='amount'>{amount}</h2>\n     </Wrapper>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1679720281098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,11 @@\n       <button type='button' className='amount-btn' onClick={decrease}>\n         <FaMinus />\n       </button>\n       <h2 className='amount'>{amount}</h2>\n+      <button type='button' className='amount-btn' onClick={increase}>\n+        <FaPlus />\n+      </button>\n     </Wrapper>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1679720166036,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport styled from 'styled-components';\nimport { FaPlus, FaMinus } from 'react-icons/fa';\n\nconst AmountButtons = ({ increase, decrease, amount }) => {\n  return (\n    <Wrapper className='amount-btn'>\n      <button type='button' className='amount-btn' onClick={decrease}>\n        <FaMinus />\n      </button>\n    </Wrapper>\n  );\n};\n\nconst Wrapper = styled.div`\n  display: grid;\n  width: 140px;\n  justify-items: center;\n  grid-template-columns: repeat(3, 1fr);\n  align-items: center;\n  h2 {\n    margin-bottom: 0;\n  }\n  button {\n    background: transparent;\n    border-color: transparent;\n    cursor: pointer;\n    padding: 1rem 0;\n    width: 2rem;\n    height: 1rem;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n  h2 {\n    margin-bottom: 0;\n  }\n`;\n\nexport default AmountButtons;\n"
+        }
+    ]
+}

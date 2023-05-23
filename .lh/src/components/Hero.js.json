@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Hero.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679455049670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679455090552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n         <h1>\n           design your <br />\n           comfort zone\n         </h1>\n+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt eius rerum repudiandae sequi temporibus sed cum excepturi harum eum nemo, dolorum beatae iste. Minus soluta maiores tempora, natus obcaecati corporis! Officia explicabo voluptas soluta dolore, doloremque cum labore vero aperiam.</p>\n       </article>\n     </Wrapper>\n   );\n };\n"
+                },
+                {
+                    "date": 1679455140965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n           dolorum beatae iste. Minus soluta maiores tempora, natus obcaecati\n           corporis! Officia explicabo voluptas soluta dolore, doloremque cum\n           labore vero aperiam.\n         </p>\n+        <Link to = '/products' className='btn hero-btn'></Link>\n       </article>\n     </Wrapper>\n   );\n };\n"
+                }
+            ],
+            "date": 1679455049670,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport styled from 'styled-components'\nimport { Link } from 'react-router-dom'\nimport heroBcg from '../assets/hero-bcg.jpeg'\nimport heroBcg2 from '../assets/hero-bcg-2.jpeg'\n\nconst Hero = () => {\n  return <Wrapper className='section-center'>\n    <article className='content'>\n      <h1>design your <br />\n      comfort zone\n      </h1>\n    </article>\n  </Wrapper>\n}\n\nconst Wrapper = styled.section`\n  min-height: 60vh;\n  display: grid;\n  place-items: center;\n  .img-container {\n    display: none;\n  }\n\n  p {\n    line-height: 2;\n    max-width: 45em;\n    margin-bottom: 2rem;\n    color: var(--clr-grey-5);\n    font-size: 1rem;\n  }\n  @media (min-width: 992px) {\n    height: calc(100vh - 5rem);\n    grid-template-columns: 1fr 1fr;\n    gap: 8rem;\n    h1 {\n      margin-bottom: 2rem;\n    }\n    p {\n      font-size: 1.25rem;\n    }\n    .hero-btn {\n      padding: 0.75rem 1.5rem;\n      font-size: 1rem;\n    }\n    .img-container {\n      display: block;\n      position: relative;\n    }\n    .main-img {\n      width: 100%;\n      height: 550px;\n      position: relative;\n      border-radius: var(--radius);\n      display: block;\n      object-fit: cover;\n    }\n    .accent-img {\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      width: 250px;\n      transform: translateX(-50%);\n      border-radius: var(--radius);\n    }\n    .img-container::before {\n      content: '';\n      position: absolute;\n      width: 10%;\n      height: 80%;\n      background: var(--clr-primary-9);\n      bottom: 0%;\n      left: -8%;\n      border-radius: var(--radius);\n    }\n  }\n`\n\nexport default Hero\n"
+        }
+    ]
+}

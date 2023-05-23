@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/ProductList.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679746885938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679747149738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import GridView from './GridView';\n import ListView from './ListView';\n \n const ProductList = () => {\n-  return <GridView>product list</GridView>;\n+  const {filtered_products: products} = useFilterContext()\n+  return <GridView products={products}>product list</GridView>;\n };\n \n export default ProductList;\n"
+                },
+                {
+                    "date": 1679747722613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import GridView from './GridView';\n import ListView from './ListView';\n \n const ProductList = () => {\n-  const { filtered_products: products } = useFilterContext();\n+  const { filtered_products: products, grid_view } = useFilterContext();\n   return <GridView products={products}>product list</GridView>;\n };\n \n export default ProductList;\n"
+                }
+            ],
+            "date": 1679746885938,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport { useFilterContext } from '../context/filter_context'\nimport GridView from './GridView'\nimport ListView from './ListView'\n\nconst ProductList = () => {\n  return <GridView>product list</GridView>\n}\n\nexport default ProductList\n"
+        }
+    ]
+}

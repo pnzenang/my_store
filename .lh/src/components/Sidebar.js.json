@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Sidebar.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679367380537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679367410546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n import CartButtons from './CartButtons';\n import { useUserContext } from '../context/user_context';\n \n const Sidebar = () => {\n+  const isOpen = true\n   return (\n     <SidebarContainer>\n       <aside\n         className={`${isOpen ? 'sidebar show-sidebar' : 'show-sidebar'}`}\n"
+                },
+                {
+                    "date": 1679367553141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,14 @@\n   return (\n     <SidebarContainer>\n       <aside\n         className={`${isOpen ? 'sidebar show-sidebar' : 'show-sidebar'}`}\n-      ></aside>\n+      >\n+        <div className=\"sidebar-header\">\n+          <img src={ logo } className='logo' alt=\"comfy slogh\" />\n+          <button  type='button' className=\"close-btn\"></button>\n+        </div>\n+      </aside>\n     </SidebarContainer>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1679367380537,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport logo from '../assets/logo.svg'\nimport { Link } from 'react-router-dom'\nimport { useProductsContext } from '../context/products_context'\nimport { FaTimes } from 'react-icons/fa'\nimport { links } from '../utils/constants'\nimport styled from 'styled-components'\nimport CartButtons from './CartButtons'\nimport { useUserContext } from '../context/user_context'\n\nconst Sidebar = () => {\n  return <SidebarContainer><aside className={ `${isOpen? 'sidebar show-sidebar':'show-sidebar'}`}></aside></SidebarContainer>\n}\n\nconst SidebarContainer = styled.div`\n  text-align: center;\n  .sidebar-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 1rem 1.5rem;\n  }\n  .close-btn {\n    font-size: 2rem;\n    background: transparent;\n    border-color: transparent;\n    color: var(--clr-primary-5);\n    transition: var(--transition);\n    cursor: pointer;\n    color: var(--clr-red-dark);\n    margin-top: 0.2rem;\n  }\n  .close-btn:hover {\n    color: var(--clr-red-light);\n  }\n  .logo {\n    justify-self: center;\n    height: 45px;\n  }\n  .links {\n    margin-bottom: 2rem;\n  }\n  .links a {\n    display: block;\n    text-align: left;\n    font-size: 1rem;\n    text-transform: capitalize;\n    padding: 1rem 1.5rem;\n    color: var(--clr-grey-3);\n    transition: var(--transition);\n    letter-spacing: var(--spacing);\n  }\n\n  .links a:hover {\n    padding: 1rem 1.5rem;\n    padding-left: 2rem;\n    background: var(--clr-grey-10);\n    color: var(--clr-grey-2);\n  }\n\n  .sidebar {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: var(--clr-white);\n    transition: var(--transition);\n    transform: translate(-100%);\n    z-index: -1;\n  }\n  .show-sidebar {\n    transform: translate(0);\n    z-index: 999;\n  }\n  .cart-btn-wrapper {\n    margin: 2rem auto;\n  }\n  @media screen and (min-width: 992px) {\n    .sidebar {\n      display: none;\n    }\n  }\n`\n\nexport default Sidebar\n"
+        }
+    ]
+}

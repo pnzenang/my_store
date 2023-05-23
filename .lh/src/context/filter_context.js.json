@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/context/filter_context.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679721341845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679738247713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n \n const FilterContext = React.createContext();\n \n export const FilterProvider = ({ children }) => {\n+  const [state, dispatch] = useReducer(reducer, initialState)\n   return (\n     <FilterContext.Provider value='filter context'>\n       {children}\n     </FilterContext.Provider>\n"
+                },
+                {
+                    "date": 1679739717299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,15 @@\n \n const FilterContext = React.createContext();\n \n export const FilterProvider = ({ children }) => {\n+  const {products} = useProductsContext()\n   const [state, dispatch] = useReducer(reducer, initialState);\n+\n+  useEffect(() => {\n+    dispatch({type:LOAD_PRODUCTS, payload: products})\n+  },[products])\n+\n   return (\n     <FilterContext.Provider value='filter context'>\n       {children}\n     </FilterContext.Provider>\n"
+                }
+            ],
+            "date": 1679721341845,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useContext, useReducer } from 'react'\nimport reducer from '../reducers/filter_reducer'\nimport {\n  LOAD_PRODUCTS,\n  SET_GRIDVIEW,\n  SET_LISTVIEW,\n  UPDATE_SORT,\n  SORT_PRODUCTS,\n  UPDATE_FILTERS,\n  FILTER_PRODUCTS,\n  CLEAR_FILTERS,\n} from '../actions'\nimport { useProductsContext } from './products_context'\n\nconst initialState = {\n  filter_products: [],\n  all_products:[]\n}\n\nconst FilterContext = React.createContext()\n\nexport const FilterProvider = ({ children }) => {\n  return (\n    <FilterContext.Provider value='filter context'>\n      {children}\n    </FilterContext.Provider>\n  )\n}\n// make sure use\nexport const useFilterContext = () => {\n  return useContext(FilterContext)\n}\n"
+        }
+    ]
+}

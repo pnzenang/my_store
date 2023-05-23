@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/pages/AboutPage.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679450271535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679450317703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const AboutPage = () => {\n   return (\n     <main>\n       <PageHero />\n-      <Wrapper />\n+      <Wrapper className='page section section-center'></Wrapper>\n     </main>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1679450381838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,11 @@\n const AboutPage = () => {\n   return (\n     <main>\n       <PageHero />\n-      <Wrapper className='page section section-center'></Wrapper>\n+      <Wrapper className='page section section-center'>\n+        <img src={aboutImg} alt=\"nice desk\" />\n+      </Wrapper>\n     </main>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1679450271535,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport styled from 'styled-components'\nimport { PageHero } from '../components'\nimport aboutImg from '../assets/hero-bcg.jpeg'\n\nconst AboutPage = () => {\n  return <main><PageHero/><Wrapper/></main>\n}\n\nconst Wrapper = styled.section`\n  display: grid;\n  gap: 4rem;\n  img {\n    width: 100%;\n    display: block;\n    border-radius: var(--radius);\n    height: 500px;\n    object-fit: cover;\n  }\n  p {\n    line-height: 2;\n    max-width: 45em;\n    margin: 0 auto;\n    margin-top: 2rem;\n    color: var(--clr-grey-5);\n  }\n  .title {\n    text-align: left;\n  }\n  .underline {\n    margin-left: 0;\n  }\n  @media (min-width: 992px) {\n    grid-template-columns: 1fr 1fr;\n  }\n`\nexport default AboutPage\n"
+        }
+    ]
+}

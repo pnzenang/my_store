@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679368911993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679738322282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,7 +12,10 @@\n const root = ReactDOM.createRoot(document.getElementById('root'));\n \n root.render(\n   <ProductsProvider>\n+    <FilterProvider>\n     <App />\n+\n+    </FilterProvider>\n   </ProductsProvider>\n );\n"
+                },
+                {
+                    "date": 1680049671664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,11 @@\n \n root.render(\n   <ProductsProvider>\n     <FilterProvider>\n+      <CartProvider>\n       <App />\n+\n+      </CartProvider>\n     </FilterProvider>\n   </ProductsProvider>\n );\n"
+                }
+            ],
+            "date": 1679368911993,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport './index.css';\nimport App from './App';\n\nimport { ProductsProvider } from './context/products_context';\nimport { FilterProvider } from './context/filter_context';\nimport { CartProvider } from './context/cart_context';\nimport { UserProvider } from './context/user_context';\nimport { Auth0Provider } from '@auth0/auth0-react';\n\nconst root = ReactDOM.createRoot(document.getElementById('root'));\n\nroot.render(\n  <ProductsProvider>\n    <App />\n  </ProductsProvider>\n);\n"
+        }
+    ]
+}

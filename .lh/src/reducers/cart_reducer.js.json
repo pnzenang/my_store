@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/reducers/cart_reducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1680053098183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1680053160124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n \n const cart_reducer = (state, action) => {\n   if (action.type === ADD_TO_CART) {\n     const { id, color, amount, product } = action.payload;\n+    const tempItem = state.cart.find()\n   }\n   return state;\n   throw new Error(`No Matching \"${action.type}\" - action type`);\n };\n"
+                },
+                {
+                    "date": 1680053230679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n const cart_reducer = (state, action) => {\n   if (action.type === ADD_TO_CART) {\n     const { id, color, amount, product } = action.payload;\n-    const tempItem = state.cart.find();\n+    const tempItem = state.cart.find((i)=>i.id===id + color);\n   }\n   return state;\n   throw new Error(`No Matching \"${action.type}\" - action type`);\n };\n"
+                }
+            ],
+            "date": 1680053098183,
+            "name": "Commit-0",
+            "content": "import {\n  ADD_TO_CART,\n  CLEAR_CART,\n  COUNT_CART_TOTALS,\n  REMOVE_CART_ITEM,\n  TOGGLE_CART_ITEM_AMOUNT,\n} from '../actions'\n\nconst cart_reducer = (state, action) => {\n  if (action.type === ADD_TO_CART) {\n    const {id, color, amount, product} = action.payload\n  }\n  return state\n  throw new Error(`No Matching \"${action.type}\" - action type`)\n}\n\nexport default cart_reducer\n"
+        }
+    ]
+}

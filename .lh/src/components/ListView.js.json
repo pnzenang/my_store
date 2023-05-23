@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/ListView.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679750963605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679751073349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n           <article key={id}>\n             <img src={image} alt={name} />\n             <div>\n               <h4>{name}</h4>\n-              <h5 className='price'>{formatPrice(price)}</h5>\n+              <h5 className='price'>{ formatPrice(price) }</h5>\n+              <p>{ description }</p>\n+              <Link to={`/products/${id}`} className='btn'></Link>\n             </div>\n           </article>\n         );\n       })}\n"
+                },
+                {
+                    "date": 1679751126935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n             <div>\n               <h4>{name}</h4>\n               <h5 className='price'>{formatPrice(price)}</h5>\n               <p>{description}</p>\n-              <Link to={`/products/${id}`} className='btn'></Link>\n+              <Link to={`/products/${id}`} className='btn'>details</Link>\n             </div>\n           </article>\n         );\n       })}\n"
+                }
+            ],
+            "date": 1679750963605,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport styled from 'styled-components'\nimport { formatPrice } from '../utils/helpers'\nimport { Link } from 'react-router-dom'\nconst ListView = ({products}) => {\n  return <Wrapper>\n    { products.map((product) => {\n      const { id, image, name, price, description } = product\n      return <article key={id}>\n        <img src={ image } alt={ name } />\n        <div>\n          <h4>{ name }</h4>\n          <h5 className='price'>{formatPrice(price)}</h5>\n        </div>\n      </article>\n    })}\n  </Wrapper>\n}\n\nconst Wrapper = styled.section`\n  display: grid;\n  row-gap: 3rem;\n\n  img {\n    width: 100%;\n    display: block;\n    width: 300px;\n    height: 200px;\n    object-fit: cover;\n    border-radius: var(--radius);\n    margin-bottom: 1rem;\n  }\n  h4 {\n    margin-bottom: 0.5rem;\n  }\n  .price {\n    color: var(--clr-primary-6);\n    margin-bottom: 0.75rem;\n  }\n  p {\n    max-width: 45em;\n    margin-bottom: 1rem;\n  }\n  .btn {\n    font-size: 0.5rem;\n    padding: 0.25rem 0.5rem;\n  }\n  @media (min-width: 992px) {\n    article {\n      display: grid;\n      grid-template-columns: auto 1fr;\n      column-gap: 2rem;\n      align-items: center;\n    }\n  }\n`\n\nexport default ListView\n"
+        }
+    ]
+}

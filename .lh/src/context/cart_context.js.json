@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/context/cart_context.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1680049454041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1680049604187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,11 @@\n \n const CartContext = React.createContext();\n \n export const CartProvider = ({ children }) => {\n+  const [state, dispatch] =useReducer(reducer, initialState)\n   return (\n-    <CartContext.Provider value='cart context'>{children}</CartContext.Provider>\n+    <CartContext.Provider value={{...state}}>{children}</CartContext.Provider>\n   );\n };\n // make sure use\n export const useCartContext = () => {\n"
+                },
+                {
+                    "date": 1680052640214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,14 @@\n const CartContext = React.createContext();\n \n export const CartProvider = ({ children }) => {\n   const [state, dispatch] = useReducer(reducer, initialState);\n+\n+  //add to cart\n+\n+  const addToCart = (id, color, amount, product) => {\n+    dispatch({type: ADD_TO_CART, payload:{id, color, amount, product}})\n+  }\n   return (\n     <CartContext.Provider value={{ ...state }}>{children}</CartContext.Provider>\n   );\n };\n"
+                }
+            ],
+            "date": 1680049454040,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useContext, useReducer } from 'react'\nimport reducer from '../reducers/cart_reducer'\nimport {\n  ADD_TO_CART,\n  REMOVE_CART_ITEM,\n  TOGGLE_CART_ITEM_AMOUNT,\n  CLEAR_CART,\n  COUNT_CART_TOTALS,\n} from '../actions'\n\nconst initialState = {\n  cart: [],\n  total_items: 0,\n  total_amount: 0,\n  shipping_fee:534, \n\n}\n\nconst CartContext = React.createContext()\n\nexport const CartProvider = ({ children }) => {\n  return (\n    <CartContext.Provider value='cart context'>{children}</CartContext.Provider>\n  )\n}\n// make sure use\nexport const useCartContext = () => {\n  return useContext(CartContext)\n}\n"
+        }
+    ]
+}

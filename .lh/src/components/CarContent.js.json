@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/CarContent.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1680143862018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1680143969512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n       <div className='link-container'>\n         <Link to='/products' className='link-btn'>\n           continue shopping\n         </Link>\n+        <button type='button'></button>\n       </div>\n     </Wrapper>\n   );\n };\n"
+                },
+                {
+                    "date": 1680144046643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <div className='link-container'>\n         <Link to='/products' className='link-btn'>\n           continue shopping\n         </Link>\n-        <button type='button'></button>\n+        <button type='button' className='link-btn clear-btn' onClick={clearCart}>clear shopping cart</button>\n       </div>\n     </Wrapper>\n   );\n };\n"
+                }
+            ],
+            "date": 1680143862018,
+            "name": "Commit-0",
+            "content": "/* eslint-disable no-unused-vars */\nimport React from 'react'\nimport styled from 'styled-components'\nimport { useCartContext } from '../context/cart_context'\nimport { Link } from 'react-router-dom'\nimport CartColumns from './CartColumns'\nimport CartItem from './CartItem'\nimport CartTotals from './CartTotals'\n\nconst CartContent = () => {\n  const {cart, clearCart} = useCartContext()\n  return <Wrapper className='section section-center'>\n    <CartColumns />\n    { cart.map((item) => {\n      return <CartItem key={item.id}{...item}/>\n    }) }\n    <hr />\n    <div className=\"link-container\">\n      <Link to='/products' className='link-btn'>continue shopping</Link>\n    </div>\n  </Wrapper>\n}\nconst Wrapper = styled.section`\n  .link-container {\n    display: flex;\n    justify-content: space-between;\n    margin-top: 2rem;\n  }\n  .link-btn {\n    background: transparent;\n    border-color: transparent;\n    text-transform: capitalize;\n    padding: 0.25rem 0.5rem;\n    background: var(--clr-primary-5);\n    color: var(--clr-white);\n    border-radius: var(--radius);\n    letter-spacing: var(--spacing);\n    font-weight: 400;\n    cursor: pointer;\n  }\n  .clear-btn {\n    background: var(--clr-black);\n  }\n`\nexport default CartContent\n"
+        }
+    ]
+}

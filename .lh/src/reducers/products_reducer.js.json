@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/reducers/products_reducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679370861542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679371000101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n } from '../actions';\n \n const products_reducer = (state, action) => {\n   if (action.type === 'SIDEBAR_OPEN') {\n-    console.log(action);\n+    return {...state, isSidebarOpen: true}\n   }\n   return state;\n   throw new Error(`No Matching \"${action.type}\" - action type`);\n };\n"
+                },
+                {
+                    "date": 1679371288644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   GET_SINGLE_PRODUCT_ERROR,\n } from '../actions';\n \n const products_reducer = (state, action) => {\n-  if (action.type === 'SIDEBAR_OPEN') {\n+  if (action.type === SIDEBAR_OPEN) {\n     return { ...state, isSidebarOpen: true };\n   }\n   return state;\n   throw new Error(`No Matching \"${action.type}\" - action type`);\n"
+                }
+            ],
+            "date": 1679370861542,
+            "name": "Commit-0",
+            "content": "import {\n  SIDEBAR_OPEN,\n  SIDEBAR_CLOSE,\n  GET_PRODUCTS_BEGIN,\n  GET_PRODUCTS_SUCCESS,\n  GET_PRODUCTS_ERROR,\n  GET_SINGLE_PRODUCT_BEGIN,\n  GET_SINGLE_PRODUCT_SUCCESS,\n  GET_SINGLE_PRODUCT_ERROR,\n} from '../actions'\n\nconst products_reducer = (state, action) => {\n\n  if (action.type === 'SIDEBAR_OPEN') {\n    console.log(action);\n  }\n  return state\n  throw new Error(`No Matching \"${action.type}\" - action type`)\n}\n\nexport default products_reducer\n"
+        }
+    ]
+}

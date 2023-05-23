@@ -1,0 +1,94 @@
+{
+    "sourceFile": "src/components/AddToCart.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 19,
+            "patches": [
+                {
+                    "date": 1679717239811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679717415944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,10 @@\n import AmountButtons from './AmountButtons';\n \n const AddToCart = () => {\n   const { id, stock, colors } = product;\n+\n+  const [mainColor, setMainColor] = useState(colors[0]);\n   return <h4>addToCart </h4>;\n };\n \n const Wrapper = styled.section`\n"
+                },
+                {
+                    "date": 1679717616423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,21 @@\n const AddToCart = () => {\n   const { id, stock, colors } = product;\n \n   const [mainColor, setMainColor] = useState(colors[0]);\n-  return <h4>addToCart </h4>;\n+\n+  return (\n+    <Wrapper>\n+      <div className='colors'>\n+        <span>colors:</span>\n+        <div>\n+          {colors.map((color, index) => {\n+            return <button key={index}>{index}</button>;\n+          })}\n+        </div>\n+      </div>\n+    </Wrapper>\n+  );\n };\n \n const Wrapper = styled.section`\n   margin-top: 2rem;\n"
+                },
+                {
+                    "date": 1679717700459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import AmountButtons from './AmountButtons';\n \n const AddToCart = () => {\n   const { id, stock, colors } = product;\n-\n+  console.log(colors);\n   const [mainColor, setMainColor] = useState(colors[0]);\n \n   return (\n     <Wrapper>\n"
+                },
+                {
+                    "date": 1679717772146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { FaCheck } from 'react-icons/fa';\n import { useCartContext } from '../context/cart_context';\n import AmountButtons from './AmountButtons';\n \n-const AddToCart = () => {\n+const AddToCart = ({ product }) => {\n   const { id, stock, colors } = product;\n   console.log(colors);\n   const [mainColor, setMainColor] = useState(colors[0]);\n \n"
+                },
+                {
+                    "date": 1679717895921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,13 @@\n       <div className='colors'>\n         <span>colors:</span>\n         <div>\n           {colors.map((color, index) => {\n-            return <button key={index}>{index}</button>;\n+            return (\n+              <button key={index} style={{ background: color }}>\n+                {index}\n+              </button>\n+            );\n           })}\n         </div>\n       </div>\n     </Wrapper>\n"
+                },
+                {
+                    "date": 1679718031208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,13 @@\n         <span>colors:</span>\n         <div>\n           {colors.map((color, index) => {\n             return (\n-              <button key={index} style={{ background: color }}>\n+              <button\n+                key={index}\n+                style={{ background: color }}\n+                className='color-btn'\n+              >\n                 {index}\n               </button>\n             );\n           })}\n"
+                },
+                {
+                    "date": 1679718991943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,11 @@\n             return (\n               <button\n                 key={index}\n                 style={{ background: color }}\n-                className='color-btn'\n+                className={`${\n+                  mainColor === color ? 'color-btn active' : 'color-btn'\n+                }`}\n               >\n                 {index}\n               </button>\n             );\n"
+                },
+                {
+                    "date": 1679719097349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,11 @@\n                 style={{ background: color }}\n                 className={`${\n                   mainColor === color ? 'color-btn active' : 'color-btn'\n                 }`}\n+                onClick={() => setMainColor(color)}\n               >\n-                {index}\n+                {mainColor === color ? <FaCheck /> : null}\n               </button>\n             );\n           })}\n         </div>\n"
+                },
+                {
+                    "date": 1679719175865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n const AddToCart = ({ product }) => {\n   const { id, stock, colors } = product;\n   console.log(colors);\n   const [mainColor, setMainColor] = useState(colors[0]);\n+  const [amount, setAmount] = useState(1);\n \n   return (\n     <Wrapper>\n       <div className='colors'>\n"
+                },
+                {
+                    "date": 1679719247626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,12 @@\n   console.log(colors);\n   const [mainColor, setMainColor] = useState(colors[0]);\n   const [amount, setAmount] = useState(1);\n \n+  const increase = () => {};\n+\n+  const decrease = () => {};\n+\n   return (\n     <Wrapper>\n       <div className='colors'>\n         <span>colors:</span>\n"
+                },
+                {
+                    "date": 1679719396069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,14 @@\n             );\n           })}\n         </div>\n       </div>\n+      <div className='btn-container'>\n+        <AmountButtons />\n+        <Link to='cart' className='btn'>\n+          add to cart\n+        </Link>\n+      </div>\n     </Wrapper>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1679719572845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,13 @@\n           })}\n         </div>\n       </div>\n       <div className='btn-container'>\n-        <AmountButtons />\n+        <AmountButtons\n+          amount={amount}\n+          increase={increase}\n+          decrease={decrease}\n+        />\n         <Link to='cart' className='btn'>\n           add to cart\n         </Link>\n       </div>\n"
+                },
+                {
+                    "date": 1679720429958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,13 @@\n   console.log(colors);\n   const [mainColor, setMainColor] = useState(colors[0]);\n   const [amount, setAmount] = useState(1);\n \n-  const increase = () => {};\n+  const increase = () => {\n+    setAmount((oldAmount) => {\n+      let tempAmount = oldAmount + 1;\n+    });\n+  };\n \n   const decrease = () => {};\n \n   return (\n"
+                },
+                {
+                    "date": 1679720605594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,24 @@\n \n   const increase = () => {\n     setAmount((oldAmount) => {\n       let tempAmount = oldAmount + 1;\n+      if (temAmount > stock) {\n+        tempAmount = stock;\n+      }\n+      return tempAmount;\n     });\n   };\n+  const decrease = () => {\n+    setAmount((oldAmount) => {\n+      let tempAmount = oldAmount - 1;\n+      if (temAmount < 1) {\n+        tempAmount = 1;\n+      }\n+      return tempAmount;\n+    });\n+  };\n \n-  const decrease = () => {};\n-\n   return (\n     <Wrapper>\n       <div className='colors'>\n         <span>colors:</span>\n"
+                },
+                {
+                    "date": 1679720626864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \n   const increase = () => {\n     setAmount((oldAmount) => {\n       let tempAmount = oldAmount + 1;\n-      if (temAmount > stock) {\n+      if (temPAmount > stock) {\n         tempAmount = stock;\n       }\n       return tempAmount;\n     });\n"
+                },
+                {
+                    "date": 1679720650895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,18 +13,18 @@\n \n   const increase = () => {\n     setAmount((oldAmount) => {\n       let tempAmount = oldAmount + 1;\n-      if (temPAmount > stock) {\n+      if (tempAmount > stock) {\n         tempAmount = stock;\n       }\n       return tempAmount;\n     });\n   };\n   const decrease = () => {\n     setAmount((oldAmount) => {\n       let tempAmount = oldAmount - 1;\n-      if (temAmount < 1) {\n+      if (tempAmount < 1) {\n         tempAmount = 1;\n       }\n       return tempAmount;\n     });\n"
+                },
+                {
+                    "date": 1680052827896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import { useCartContext } from '../context/cart_context';\n import AmountButtons from './AmountButtons';\n \n const AddToCart = ({ product }) => {\n+  const {addToCart} = useCartContext()\n   const { id, stock, colors } = product;\n   console.log(colors);\n   const [mainColor, setMainColor] = useState(colors[0]);\n   const [amount, setAmount] = useState(1);\n@@ -56,9 +57,9 @@\n           amount={amount}\n           increase={increase}\n           decrease={decrease}\n         />\n-        <Link to='cart' className='btn'>\n+        <Link to='cart' className='btn' onClick={()=>addToCart()}>\n           add to cart\n         </Link>\n       </div>\n     </Wrapper>\n"
+                },
+                {
+                    "date": 1680052957126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n           amount={amount}\n           increase={increase}\n           decrease={decrease}\n         />\n-        <Link to='cart' className='btn' onClick={() => addToCart()}>\n+        <Link to='cart' className='btn' onClick={() => addToCart(id, mainColor, amount, product)}>\n           add to cart\n         </Link>\n       </div>\n     </Wrapper>\n"
+                },
+                {
+                    "date": 1680137306888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n           increase={increase}\n           decrease={decrease}\n         />\n         <Link\n-          to='cart'\n+          to='/cart'\n           className='btn'\n           onClick={() => addToCart(id, mainColor, amount, product)}\n         >\n           add to cart\n"
+                }
+            ],
+            "date": 1679717239811,
+            "name": "Commit-0",
+            "content": "import React, { useState } from 'react';\nimport styled from 'styled-components';\nimport { Link } from 'react-router-dom';\nimport { FaCheck } from 'react-icons/fa';\nimport { useCartContext } from '../context/cart_context';\nimport AmountButtons from './AmountButtons';\n\nconst AddToCart = () => {\n  const { id, stock, colors } = product;\n  return <h4>addToCart </h4>;\n};\n\nconst Wrapper = styled.section`\n  margin-top: 2rem;\n  .colors {\n    display: grid;\n    grid-template-columns: 125px 1fr;\n    align-items: center;\n    margin-bottom: 1rem;\n    span {\n      text-transform: capitalize;\n      font-weight: 700;\n    }\n    div {\n      display: flex;\n    }\n  }\n  .color-btn {\n    display: inline-block;\n    width: 1.5rem;\n    height: 1.5rem;\n    border-radius: 50%;\n    background: #222;\n    margin-right: 0.5rem;\n    border: none;\n    cursor: pointer;\n    opacity: 0.5;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    svg {\n      font-size: 0.75rem;\n      color: var(--clr-white);\n    }\n  }\n  .active {\n    opacity: 1;\n  }\n  .btn-container {\n    margin-top: 2rem;\n  }\n\n  .btn {\n    margin-top: 1rem;\n    width: 140px;\n  }\n`;\nexport default AddToCart;\n"
+        }
+    ]
+}

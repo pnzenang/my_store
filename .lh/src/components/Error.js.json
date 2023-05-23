@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/Error.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1679462333183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679463344254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n-import React from 'react'\n+import React from 'react';\n const Error = () => {\n-  return <div className='section section-center text-center'>\n-    <h2>there was an error...</h2>\n-  </div>\n-}\n+  return (\n+    <div className='section section-center text-center'>\n+      <h2>there was an error...</h2>\n+    </div>\n+  );\n+};\n \n-export default Error\n+export default Error;\n"
+                }
+            ],
+            "date": 1679462333183,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nconst Error = () => {\n  return <div className='section section-center text-center'>\n    <h2>there was an error...</h2>\n  </div>\n}\n\nexport default Error\n"
+        }
+    ]
+}
